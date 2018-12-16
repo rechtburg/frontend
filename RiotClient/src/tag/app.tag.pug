@@ -1,0 +1,22 @@
+app
+    div.test
+        h1 app.tag
+        button(click='{clicked}') count: {this.list.length}
+        ul
+            li(each='{item, index in list}') {index}: {item}
+
+    style.
+        .test {
+            background-color: #ddd;
+        }
+
+    script.
+        this.list = []
+
+        this.on('mount', () => {
+            console.log('TEST app.tag mounted', opts)
+        })
+
+        clicked(e) {
+            this.list.push(new Date().toString())
+        }
